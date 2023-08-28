@@ -4,6 +4,10 @@ import { encrypt, decrypt } from './encryption.js';
 const app = express();
 app.use(express.json());
 
+app.get('/', (req, res) => {
+    res.send('Hello World! this is the root route of the app :)');
+})
+
 function message(req, res, next) {
     if (req.body.message === undefined) {
         res.status(400).send({
